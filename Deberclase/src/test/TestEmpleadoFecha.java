@@ -22,30 +22,30 @@ public class TestEmpleadoFecha {
     public static void ingresarDatos() {
         System.out.println("¿Cuántos empleados desea registrar?");
         int n = datos.nextInt();
-        Empleados emp[] = new Empleados[n];
-        llenaEmpresa(emp);
-        for (int i = 0; i < emp.length; i++) {
+        Empleados trab[] = new Empleados[n];
+        llenaEmpresa(trab);
+        for (int i = 0; i < trab.length; i++) {
             
             System.out.println("Empleado No." + (i + 1));
-            System.out.println("Nombre de empleado: " + emp[i].getNombre());
-            System.out.println("Fecha de nacimiento " + emp[i].getFechaN().toString());
+            System.out.println("Nombre de empleado: " + trab[i].getNombre());
+            System.out.println("Fecha de nacimiento " + trab[i].getFechaN().toString());
             System.out.print("Su edad es: ");
-            calcularEdad(emp[i].getFechaN());
+            calcularEdad(trab[i].getFechaN());
             System.out.println("");
-            System.out.println("Fecha de ingreso: " + emp[i].getFechaI().toString());
+            System.out.println("Fecha de ingreso: " + trab[i].getFechaI().toString());
             System.out.print("Tiempo que trabaja en la empresa:  ");
-            calcularTiempoEmpresa(emp[i].getFechaI());
+            calcularTiempo(trab[i].getFechaI());
             System.out.println("");
             System.out.println("");
             
         }
     }
 
-    public static void llenaEmpresa(Empleados emp[]) {
+    public static void llenaEmpresa(Empleados trab[]) {
         String nombre;
         int anio = 0,mes = 0,dia = 0;
 
-        for (int i = 0; i < emp.length; i++) {
+        for (int i = 0; i < trab.length; i++) {
             datos.nextLine();
             System.out.println("Empleado Nro." + (i + 1));
             System.out.print("Ingrese nombre: ");
@@ -69,7 +69,7 @@ public class TestEmpleadoFecha {
             dia = datos.nextInt();
             fechaIngreso = new Fecha(dia, mes, anio);
             System.out.println(" ");
-            emp[i] = new Empleados(nombre, fechaNacimiento, fechaIngreso);
+            trab[i] = new Empleados(nombre, fechaNacimiento, fechaIngreso);
         }
     }
 
@@ -90,7 +90,7 @@ public class TestEmpleadoFecha {
         System.out.printf("%s años, %s meses y %s dias.", periodo.getYears(), periodo.getMonths(), periodo.getDays());
     }
     
-        public static void calcularTiempoEmpresa(Fecha fechaIngreso){
+        public static void calcularTiempo(Fecha fechaIngreso){
         fechaActual = fechaActual();
         LocalDate fechaIng = LocalDate.of(fechaIngreso.getAnio(), fechaIngreso.getMes(), fechaIngreso.getDia());
         LocalDate fechaAct = LocalDate.of(fechaActual.getAnio(), fechaActual.getMes(), fechaActual.getDia());
